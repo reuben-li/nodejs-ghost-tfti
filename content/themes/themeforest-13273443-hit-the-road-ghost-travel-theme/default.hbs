@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{! Document Settings }}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    {{! Page Meta }}
+    <title>{{meta_title}}</title>
+    <meta name="description" content="{{meta_description}}" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="{{asset "favicon.ico"}}">
+
+    {{! Styles'n'Scripts }}
+    <link rel="stylesheet" type="text/css" href="{{asset "css/main.min.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "css/font-awesome.min.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "css/weather-icons.min.css"}}" />
+
+    {{! Ghost outputs important style and meta data with this tag }}
+    {{ghost_head}}
+</head>
+<body id="body" class="{{body_class}}">
+
+    {{{body}}}
+
+    {{> footer}}
+
+    <script src="{{asset "components/jquery/dist/jquery.min.js"}}"></script>
+    <script src="{{asset "components/ghost-hunter/jquery.ghostHunter.js"}}"></script>
+    <script src="{{asset "components/bootstrap/dist/js/bootstrap.min.js"}}"></script>
+    <script src="//maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"></script>
+    <script>window.baseUrl = '{{@blog.url}}/';</script>
+    <script src="{{asset "js/bundle.min.js"}}"></script>
+
+    {{ghost_foot}}
+</body>
+</html>

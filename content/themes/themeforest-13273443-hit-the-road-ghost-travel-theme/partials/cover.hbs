@@ -1,0 +1,20 @@
+{{#if post}}
+
+    {{#post}}
+        {{#if image}}
+            <section id="cover" class="cover" style="background-image: url({{image}});"></section>
+        {{/if}}
+    {{/post}}
+{{else}}
+
+
+    {{#if tag.image}}
+        <section id="cover" class="cover" style="background-image: url({{tag.image}});"></section>
+    {{else}}
+        {{#if @blog.cover}}
+            <section id="cover" class="cover" style="background-image: url({{@blog.cover}});"></section>
+        {{else}}
+            <section id="cover" class="cover"></section>
+        {{/if}}
+    {{/if}}
+{{/if}}

@@ -1,0 +1,35 @@
+<div class="widget widget-inline post-author">
+
+    {{#author}}
+      {{#if image}}
+        <div class="author-photo">
+          <img src="{{image}}" class="" />
+        </div>
+      {{/if}}
+
+      <div class="author-details">
+
+        <h2 class="author-title widget-title">About The Author</h2>
+        <p>
+          {{bio}}
+        </p>
+
+        <ul class="">
+          {{#if twitter}}
+            <li><a href="https://www.twitter.com/{{twitter}}" target="_blank">{{twitter}}</a></li>
+          {{/if}}
+          {{#if facebook}}
+            <li><a href="https://www.facebook.com/{{facebook}}" target="_blank"><i class="fa fa-facebook"></i>{{facebook}}</a></li>
+          {{/if}}
+          {{#if location}}
+            <li><a href="https://www.google.com/maps?q={{location}}" target="_blank"><i class="fa fa-map-marker"></i>{{location}}</a></li>
+          {{/if}}
+          {{#if website}}
+            <li><a href="{{website}}" target="_blank"><i class="fa fa-globe"></i>Website</a></li>
+          {{/if}}
+          <li><a href="{{url}}"><i class="fa fa-files-o"></i>More posts</a></li>
+        </ul>
+      </div>
+    {{/author}}
+</div>
+

@@ -1,0 +1,64 @@
+<div>
+
+    <div class="row posts posts-after-post">
+        {{#prev_post}}
+            <article class="post preload-background" data-image="{{image}}" data-resize="true">
+                <a href="{{url}}" class="post-image">
+                    <span class="preload-background-image"></span>
+                    <span class="post-category-wrap">
+                        <span class="post-category">
+                            {{#foreach tags}}
+                                {{#if @first}}
+                                    {{name}}
+                                {{/if}}
+                            {{/foreach}}
+                        </span>
+                        {{#has tag="featured"}}
+                            <span class="post-category post-featured">Featured</span>
+                        {{/has}}
+                    </span>
+                    {{#if image}}
+                        <span class="preload-background-spinner spinner">
+                        <span class="double-bounce1"></span>
+                        <span class="double-bounce2"></span>
+                    </span>
+                    {{/if}}
+                    <header class="post-header">
+                        <h2 class="post-title">{{{title}}}</h2>
+                        <p class="post-meta">{{#author}}<span class="post-meta-author"><i class="fa fa-user"></i>{{name}}</span>{{/author}} <time class="post-meta-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMM YYYY"}}</time></p>
+                    </header>
+                </a>
+            </article>
+        {{/prev_post}}
+        {{#next_post}}
+            <article class="post preload-background" data-image="{{image}}" data-resize="true">
+                <a href="{{url}}" class="post-image">
+                    <span class="preload-background-image"></span>
+                    <span class="post-category-wrap">
+                        <span class="post-category">
+                            {{#foreach tags}}
+                                {{#if @first}}
+                                    {{name}}
+                                {{/if}}
+                            {{/foreach}}
+                        </span>
+                        {{#has tag="featured"}}
+                            <span class="post-category post-featured">Featured</span>
+                        {{/has}}
+                    </span>
+                    {{#if image}}
+                        <span class="preload-background-spinner spinner">
+                        <span class="double-bounce1"></span>
+                        <span class="double-bounce2"></span>
+                    </span>
+                    {{/if}}
+                    <header class="post-header">
+                        <h2 class="post-title">{{{title}}}</h2>
+                        <p class="post-meta">{{#author}}<span class="post-meta-author"><i class="fa fa-user"></i>{{name}}</span>{{/author}} <time class="post-meta-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMM YYYY"}}</time></p>
+                    </header>
+                </a>
+            </article>
+        {{/next_post}}
+    </div>
+</div>
+
