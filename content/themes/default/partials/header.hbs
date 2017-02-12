@@ -2,12 +2,7 @@
 <header id="header" class="header header-main header-vh100 {{#unless cover}}{{#unless header-index}}header-naked{{else}}header-hidden{{/unless}}{{/unless}} {{#if header-index}}header-index{{/if}}">
 
     {{#if cover}}
-        <div class="header-cover preload-background hide-on-menu {{#if description}}preload-background-darker{{/if}}" data-image="{{cover}}" data-resize="false">
-            <div class="preload-background-image"></div>
-            <span class="spinner preload-background-spinner">
-                <span class="double-bounce1"></span>
-                <span class="double-bounce2"></span>
-            </span>
+        <div class="header-cover hide-on-menu {{#if description}}preload-background-darker{{/if}}" style="background-image:url({{cover}})" >
         </div>
     {{else}}
         {{#if header-index}}

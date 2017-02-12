@@ -47,20 +47,33 @@
     {{! Ghost outputs important style and meta data with this tag }}
     {{ghost_head}}
 </head>
+
+<script type="text/javascript">
+function downloadJSAtOnload() {
+var element = document.createElement("script");
+element.src = "../assets/js/all.js";
+document.body.appendChild(element);
+}
+if (window.addEventListener)
+window.addEventListener("load", downloadJSAtOnload, false);
+else if (window.attachEvent)
+window.attachEvent("onload", downloadJSAtOnload);
+else window.onload = downloadJSAtOnload;
+</script>
+
 <body id="body" class="{{body_class}}">
 
     {{{body}}}
 
     {{> footer}}
 
-    <script src="{{asset "components/jquery/dist/jquery.min.js"}}"></script>
-    <script src="{{asset "components/ghost-hunter/jquery.ghostHunter.js"}}"></script>
-    <script src="{{asset "components/bootstrap/dist/js/bootstrap.min.js"}}"></script>
-    <script>window.baseUrl = '{{@blog.url}}/';</script>
+<!--    <script src="{{asset "components/jquery/dist/jquery.min.js"}}"></script>
     <script src="{{asset "js/bundle.min.js"}}"></script>
- 
-   <!--<script src="//maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"></script> -->
-
+    <script src="{{asset "components/ghost-hunter/jquery.ghostHunter.min.js"}}"></script>
+    <script src="{{asset "components/bootstrap/dist/js/bootstrap.min.js"}}"></script>
+-->    <script>window.baseUrl = '{{@blog.url}}/';</script>
+<!--    <script src="{{asset "js/bundle.min.js"}}"></script>
+   <script src="//maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"></script> -->
     {{ghost_foot}}
 </body>
 </html>
