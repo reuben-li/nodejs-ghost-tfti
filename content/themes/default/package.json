@@ -29,6 +29,7 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
+    "gulp-concat": "^2.6.1",
     "react-dom": "^0.14.0",
     "react-google-maps": "^4.2.0"
   }
