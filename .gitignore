@@ -3,3 +3,5 @@ content/data/
 config.js
 node_modules/
 content/images/
+content/storage/
+*.swp

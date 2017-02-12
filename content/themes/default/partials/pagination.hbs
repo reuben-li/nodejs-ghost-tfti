@@ -1,0 +1,76 @@
+<nav class="pagination">
+    {{#if prev}}
+        <a class="newer-posts btn {{#if prev}}btn-primary{{else}}btn-disabled{{/if}}" {{#if prev}}href="{{page_url prev}}"{{/if}}><span class="glyphicon fa fa-angle-left"></span> Previous page</a>
+    {{/if}}
+    <span class="page-number">Page {{page}} of {{pages}}</span>
+    {{#if next}}
+        <a class="older-posts btn {{#if next}}btn-primary{{else}}btn-disabled{{/if}}" href="{{page_url next}}">Next page <span class="glyphicon fa fa-angle-right"></span> </a>
+    {{/if}}
+</nav>
+
+<script>
+$(document).ready(GeneratePagination);
+
+var pages;
+
+function GeneratePagination(){
+    var targetDiv = ".post-content";
+    //var content = document.getElementById(targetDiv);
+    var content = $(targetDiv)[0]
+    if (!content){ return false };
+    pages = content.innerHTML.split(/<!-- page-break -->/g);
+    var html = '';
+    
+    if (pages.length>1){
+        for (var i=0;i<pages.length;i++){
+            html +="<div  id=\"pagination_"+(i+1)+"\" class=\"pg_content\" style=\"display:none\">"+pages[i]+"</div>";
+        }
+        html+="<div class=\"pg_nav \">";
+        html+="<div class=\"pg_next btn btn-primary\"><a href=\"#2\" onclick=\"ShowPage(this);\">Next Page</a></div>"
+        for (var i=0;i<pages.length;i++){
+            html +="<div class=\"pg_button btn btn-primary\" data-pagenum=\""+(i+1)+"\"><a href=\"#"+(i+1)+"\" onclick=\"ShowPage(this);\">"+(i+1)+"</a></div>";
+        }
+        html+="</div>";
+        content.innerHTML = html;
+        var initialPage = location.hash.substr(1) || 1
+        ShowPage(initialPage)
+    } else {
+        return false;
+    }
+    function ShowPage(elem){
+        var x;
+        var mx = pages.length;
+        if (!isNaN(parseInt(elem,10))){
+            x = parseInt(elem, 10);
+        } else if (typeof elem === "object" && $(elem).attr("href")) {
+            x = parseInt($(elem).attr("href").substr(1));
+        }
+        if (!x || x > mx){ // if nonsensical x, just show first page
+            location.hash = "";
+            x = 1;
+        }
+        if ($(elem).parent().hasClass("active")){ return false; }
+        $(".pg_content").hide();
+        $(".pg_button").removeClass("active");
+        $(".pg_button[data-pagenum='"+x+"']").addClass("active");
+        
+        // hide/show next page button, and update url
+        if (mx > 1 && x < mx){
+            $(".pg_next").show();
+        } else {
+            $(".pg_next").hide();
+        }
+        setTimeout(function(){
+            $(".pg_next a").attr("href", "#"+(x+1))
+        }, 1);
+        window.scrollTo(0,0);
+        $("#pagination_"+x).show();
+    }
+    $(window).on('hashchange', function(){
+        var pagenum = window.location.hash.substr(1)
+        if (!isNaN(pagenum)){
+            ShowPage(window.location.hash.substr(1));
+        }
+    })
+}
+</script>

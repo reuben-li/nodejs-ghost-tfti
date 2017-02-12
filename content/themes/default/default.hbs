@@ -17,8 +17,8 @@
     {{! Styles'n'Scripts }}
     <link rel="stylesheet" type="text/css" href="{{asset "css/main.min.css"}}" />
     <link rel="stylesheet" type="text/css" href="{{asset "css/font-awesome.min.css"}}" />
-    <link rel="stylesheet" type="text/css" href="{{asset "css/weather-icons.min.css"}}" />
-
+<!--    <link rel="stylesheet" type="text/css" href="{{asset "css/weather-icons.min.css"}}" />
+-->
     {{! Ghost outputs important style and meta data with this tag }}
     {{ghost_head}}
 </head>
@@ -31,9 +31,10 @@
     <script src="{{asset "components/jquery/dist/jquery.min.js"}}"></script>
     <script src="{{asset "components/ghost-hunter/jquery.ghostHunter.js"}}"></script>
     <script src="{{asset "components/bootstrap/dist/js/bootstrap.min.js"}}"></script>
-    <script src="//maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"></script>
     <script>window.baseUrl = '{{@blog.url}}/';</script>
     <script src="{{asset "js/bundle.min.js"}}"></script>
+ 
+   <!--<script src="//maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"></script> -->
 
     {{ghost_foot}}
 </body>

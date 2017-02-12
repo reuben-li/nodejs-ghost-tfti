@@ -1,9 +1,0 @@
-<nav class="pagination">
-    {{#if prev}}
-        <a class="newer-posts btn {{#if prev}}btn-primary{{else}}btn-disabled{{/if}}" {{#if prev}}href="{{page_url prev}}"{{/if}}><span class="glyphicon fa fa-angle-left"></span> Previous page</a>
-    {{/if}}
-    <span class="page-number">Page {{page}} of {{pages}}</span>
-    {{#if next}}
-        <a class="older-posts btn {{#if next}}btn-primary{{else}}btn-disabled{{/if}}" href="{{page_url next}}">Next page <span class="glyphicon fa fa-angle-right"></span> </a>
-    {{/if}}
-</nav>
